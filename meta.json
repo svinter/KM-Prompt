@@ -1,0 +1,98 @@
+{
+  "title": "Select Application",
+  "message": "Choose an option",
+  "prompt": "meta",
+  "version": "3.0",
+  "color": "AliceBlue",
+  "default": "play",
+  "cancel": "cancel",
+    "rows": [
+
+	// testing
+
+	{
+      "line-before": "thin", "line-color": "Red",
+      "label": "Applications",
+      "buttons": [
+	  { "name": "path",    	"label": "Pathfinder", "key": "p" },
+	  { "name": "finder",  	"label": "Finder",     "key": "f" },
+	  { "name": "emacs",   	"label": "Emacs",      "key": "e" },
+	  { "name": "trello",  	"label": "Trello",     "key": "t" },
+	  { "name": "roam",    	"label": "Roam",       "key": "r" },
+	  { "name": "discord", 	"label": "Discord",    "key": "d" },
+	  { "name": "kbm",     	"label": "KBM",        "key": "k" },
+	  { "name": "spotify", 	"label": "Spotify",    "key": "s" },
+	  { "name": "dashboard","label": "Dashboard",  "key": "z" },
+	  { "name": "obsidian",	"label": "Obsidian",   "key": "o" },
+	  { "name": "1pass",   	"label": "1Password",  "key": "-" }
+	  ]
+	},
+	{
+      "label": "Chrome Apps ⇧",
+      "buttons": [
+	  { "name": "ChromeApp", "label": "⇧ Mail",         "param": "Mail",      "key": "m,M",     "color": "#6495ED"  },
+	  { "name": "ChromeApp", "label": "⇧ Junk",         "param": "Junk",      "key": "j,J",     "color": "#6495ED"   },
+	  { "name": "ChromeApp", "label": "⇧ Calendar",     "param": "Calendar",  "key": "c,C",     "color": "#6495ED"   },
+	  { "name": "ChromeApp", "label": "⇧ Ledger",       "param": "Ledger",    "key": "l,L",     "color": "#6495ED"   },
+	  { "name": "ChromeApp", "label": "⇧ Drive",        "param": "Drive",     "key": "D" },
+	  { "name": "ChromeApp", "label": "⇧ Schedule",     "param": "Schedule",  "key": "S" },
+	  { "name": "ChromeApp", "label": "⇧ Gemini",       "param": "Gemini",    "key": "g,G",     "color": "#6495ED"   },
+	  { "name": "ChromeApp", "label": "⇧ OChatGPT",     "param": "ChatGPT",   "key": "O",       "color": "#6495ED"   },
+	  { "name": "ChromeApp", "label": "⇧ Keep",         "param": "Notes",     "key": "K" }
+	  ]
+	},
+	{
+      "line-before": "thin", "line-color": "#7A90F3",
+      "label": "Commands ⌘",
+      "buttons": [
+	  { "name": "newtab",      "label": "⌘ New tab",      "key": "⌘n"  },
+	  { "name": "compose",     "label": "⌘ M - compose",  "key": "⌘m"  },
+	  { "name": "window",      "label": "⌘ Window",       "key": "w",  "color": "#F3D67A" },
+	  { "name": "newbookmark", "label": "⌘ Bookmark",     "key": "⌘b"  },
+	  { "name": "chars",       "label": "⌘ Chars",        "key": "⌘c"  },
+	  { "name": "dates",       "label": "⌘ Dates",        "key": "⌘d"  },
+	  { "name": "xxxxx",       "label": "Clipboard:",     "type": "phrase" },
+	  { "name": "flip",        "label": "⌘ Flip",         "key": "⌘f"  },
+	  { "name": "pop",         "label": "⌘ Pop",          "key": "⌘p"  }
+	  ]
+	},
+	{
+      "label": "Function keys",
+      "buttons": [
+	  { "name": "bookmark",  "label": "1 - Bookmark",    "key": "1,f1" },
+	  { "name": "coaching",  "label": "2 - Coaching",    "key": "2,f2" },
+	  { "name": "books",     "label": "3 - Books",       "key": "3,f3" },
+	  { "name": "clipboard", "label": "4 - Clipboard",   "key": "4,f4" },
+	  { "name": "log",       "label": "5 - Prod Log",    "key": "5,f5" },
+	  { "name": "screen",    "label": "6 - Screenshot",  "key": "6,f6" },
+	  { "name": "template",  "label": "7 - Template",    "key": "7,f7" },
+	  { "name": "catalog",   "label": "8 - Catalog",     "key": "8,f8" },
+	  { "name": "url",       "label": "9 - URL",         "key": "9,f9" }
+	  ]
+	},
+	{
+      "line-before": "thin", "line-color": "#7A90F3",
+      "label": "Settings ⌥",
+      "buttons": [
+	  { "name": "refresh",   "label": "⌥ Prompt refresh",  "key": "⌥p"},
+	  { "name": "strings",   "label": "⌥ String refresh",  "key": "⌥s"},
+	  { "name": "reinit",    "label": "⌥ KBM re-init",     "key": "⌥k"},
+	  { "name": "edit",   	 "label": "⌥ Edit json",       "key": "⌥e" },
+	  { "name": "json",   	 "label": "⌥ JSON rules",      "key": "⌥j" },
+	  { "name": "help",    	 "label": "⌥ Help",            "key": "/,h,⌥h",   "color": "#6495ED"   },
+	  { "name": "info",      "label": "⌥ Info",            "key": "⌥i,i",     "color": "#6495ED"   },
+	  { "name": "debug",     "label": "⌥ Debug",           "key": "⌥d"  },
+	  { "name": "open",    	 "label": "⌥ Open KBM",        "key": "⌥o" }
+	  ]
+	},
+	{
+      "label": "Specials",
+      "buttons": [
+	  { "name": "play",    	 "label": "Play",         "key": "⇧P,P" },
+	  { "name": "keypad+",   "label": "⇥ Keypad+",    "key": "tab",                    "color": "Blue" },
+	  { "name": "minimize",  "label": "🔙 Minimize",  "key": "⇧backspace, backspace",  "color": "#F3D67A" },
+	  { "name": "cancel",  	 "label": ". Cancel",     "key": "x,.",                     "color": "Red" }
+    ]
+   }
+  ]
+}

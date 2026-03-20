@@ -1,0 +1,113 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Select Application</title>
+<style>
+body{margin:0;padding:12px 15px;box-sizing:border-box;font-family:-apple-system,system-ui;font-size:13px;background:AliceBlue;overflow:hidden;}
+.hr{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px;width:100%;gap:16px;}
+.hl{display:flex;gap:12px;align-items:baseline;overflow:hidden;flex:1;min-width:0;}
+.t{font-weight:600;font-size:14px;white-space:nowrap;}
+.dbg{color:#d73a49;font-weight:bold;font-size:11px;display:none;background:#ffebeb;padding:2px 6px;border-radius:4px;border:1px solid #fcc;margin-left:8px;}
+.m{opacity:0.85;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.hr-r{text-align:right;font-size:11px;opacity:0.5;white-space:nowrap;flex-shrink:0;}
+#c{display:flex;flex-direction:column;width:100%;}
+.r{display:flex;align-items:stretch;gap:6px;margin-bottom:8px;width:100%;}
+.rl{width:115px;margin-right:12px;font-style:italic;opacity:0.7;text-align:right;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;justify-content:flex-end;}
+.s{width:100%;margin:2px 0 10px 0;border:0;flex-shrink:0;}
+.s.thin{border-top:1px solid rgba(0,0,0,0.15);}
+.s.thick{border-top:2px solid rgba(0,0,0,0.25);}
+.s.dotted{border-top:1px dotted rgba(0,0,0,0.3);}
+.i{width:138px;flex:0 0 138px;min-height:30px;display:flex;justify-content:center;align-items:center;text-align:center;box-sizing:border-box;font-size:13px;}
+button.i{cursor:pointer;border-radius:6px;border:1px solid rgba(0,0,0,0.2);background:#fff;padding:0 2px;white-space:nowrap;}
+button#db{background:#1f6feb!important;color:#fff!important;border-color:#1f6feb!important;}
+button:focus{outline:2px solid rgba(31,111,235,0.6);outline-offset:1px;z-index:10;}
+input.i{background:#fff;border:1px solid rgba(0,0,0,0.2);border-radius:6px;padding:0 8px;color:#333;text-align:left;outline:none;transition:.15s;}
+input.i:focus{border-color:#1f6feb;box-shadow:0 0 0 2px rgba(31,111,235,0.3);z-index:10;}
+.p{background:transparent;border:none;color:inherit;cursor:default;white-space:normal;word-wrap:break-word;line-height:1.1;padding:0 2px;}
+.inv{visibility:hidden;pointer-events:none;}
+.fb{font-weight:bold;} .fi{font-style:italic;} .fbi{font-weight:bold;font-style:italic;}
+</style></head><body data-kmwindow="SCREENVISIBLE(Main,MidX)-867,SCREENVISIBLE(Main,MidY)-160,1735,320">
+<div class="hr"><div class="hl"><div class="t">Select Application<span id="dbg-badge" class="dbg">DEBUG MODE</span></div><div class="m">Choose an option</div></div>
+<div class="hr-r">meta [v3.0] &nbsp; v9.6</div></div><div id="c"></div>
+<script>
+const rs=[{"label": "Applications", "buttons": [{"name": "path", "label": "Pathfinder", "key": "p"}, {"name": "finder", "label": "Finder", "key": "f"}, {"name": "emacs", "label": "Emacs", "key": "e"}, {"name": "trello", "label": "Trello", "key": "t"}, {"name": "roam", "label": "Roam", "key": "r"}, {"name": "discord", "label": "Discord", "key": "d"}, {"name": "kbm", "label": "KBM", "key": "k"}, {"name": "spotify", "label": "Spotify", "key": "s"}, {"name": "dashboard", "label": "Dashboard", "key": "z"}, {"name": "obsidian", "label": "Obsidian", "key": "o"}, {"name": "1pass", "label": "1Password", "key": "-"}], "line_before": "thin", "line_after": "", "line_color": "Red"}, {"label": "Chrome Apps ⇧", "buttons": [{"name": "ChromeApp", "label": "⇧ Mail", "param": "Mail", "key": "m,M", "color": "#6495ED"}, {"name": "ChromeApp", "label": "⇧ Junk", "param": "Junk", "key": "j,J", "color": "#6495ED"}, {"name": "ChromeApp", "label": "⇧ Calendar", "param": "Calendar", "key": "c,C", "color": "#6495ED"}, {"name": "ChromeApp", "label": "⇧ Ledger", "param": "Ledger", "key": "l,L", "color": "#6495ED"}, {"name": "ChromeApp", "label": "⇧ Drive", "param": "Drive", "key": "D"}, {"name": "ChromeApp", "label": "⇧ Schedule", "param": "Schedule", "key": "S"}, {"name": "ChromeApp", "label": "⇧ Gemini", "param": "Gemini", "key": "g,G", "color": "#6495ED"}, {"name": "ChromeApp", "label": "⇧ OChatGPT", "param": "ChatGPT", "key": "O", "color": "#6495ED"}, {"name": "ChromeApp", "label": "⇧ Keep", "param": "Notes", "key": "K"}], "line_before": "", "line_after": "", "line_color": ""}, {"label": "Commands ⌘", "buttons": [{"name": "newtab", "label": "⌘ New tab", "key": "⌘n"}, {"name": "compose", "label": "⌘ M - compose", "key": "⌘m"}, {"name": "window", "label": "⌘ Window", "key": "w", "color": "#F3D67A"}, {"name": "newbookmark", "label": "⌘ Bookmark", "key": "⌘b"}, {"name": "chars", "label": "⌘ Chars", "key": "⌘c"}, {"name": "dates", "label": "⌘ Dates", "key": "⌘d"}, {"name": "xxxxx", "label": "Clipboard:", "type": "phrase"}, {"name": "flip", "label": "⌘ Flip", "key": "⌘f"}, {"name": "pop", "label": "⌘ Pop", "key": "⌘p"}], "line_before": "thin", "line_after": "", "line_color": "#7A90F3"}, {"label": "Function keys", "buttons": [{"name": "bookmark", "label": "1 - Bookmark", "key": "1,f1"}, {"name": "coaching", "label": "2 - Coaching", "key": "2,f2"}, {"name": "books", "label": "3 - Books", "key": "3,f3"}, {"name": "clipboard", "label": "4 - Clipboard", "key": "4,f4"}, {"name": "log", "label": "5 - Prod Log", "key": "5,f5"}, {"name": "screen", "label": "6 - Screenshot", "key": "6,f6"}, {"name": "template", "label": "7 - Template", "key": "7,f7"}, {"name": "catalog", "label": "8 - Catalog", "key": "8,f8"}, {"name": "url", "label": "9 - URL", "key": "9,f9"}], "line_before": "", "line_after": "", "line_color": ""}, {"label": "Settings ⌥", "buttons": [{"name": "refresh", "label": "⌥ Prompt refresh", "key": "⌥p"}, {"name": "strings", "label": "⌥ String refresh", "key": "⌥s"}, {"name": "reinit", "label": "⌥ KBM re-init", "key": "⌥k"}, {"name": "edit", "label": "⌥ Edit json", "key": "⌥e"}, {"name": "json", "label": "⌥ JSON rules", "key": "⌥j"}, {"name": "help", "label": "⌥ Help", "key": "/,h,⌥h", "color": "#6495ED"}, {"name": "info", "label": "⌥ Info", "key": "⌥i,i", "color": "#6495ED"}, {"name": "debug", "label": "⌥ Debug", "key": "⌥d"}, {"name": "open", "label": "⌥ Open KBM", "key": "⌥o"}], "line_before": "thin", "line_after": "", "line_color": "#7A90F3"}, {"label": "Specials", "buttons": [{"name": "play", "label": "Play", "key": "⇧P,P"}, {"name": "keypad+", "label": "⇥ Keypad+", "key": "tab", "color": "Blue"}, {"name": "minimize", "label": "🔙 Minimize", "key": "⇧backspace, backspace", "color": "#F3D67A"}, {"name": "cancel", "label": ". Cancel", "key": "x,.", "color": "Red"}], "line_before": "", "line_after": "", "line_color": ""}], did="play", cid="cancel", kb={"p": {"baseName": "path", "param": ""}, "f": {"baseName": "finder", "param": ""}, "e": {"baseName": "emacs", "param": ""}, "t": {"baseName": "trello", "param": ""}, "r": {"baseName": "roam", "param": ""}, "d": {"baseName": "discord", "param": ""}, "k": {"baseName": "kbm", "param": ""}, "s": {"baseName": "spotify", "param": ""}, "z": {"baseName": "dashboard", "param": ""}, "o": {"baseName": "obsidian", "param": ""}, "-": {"baseName": "1pass", "param": ""}, "m": {"baseName": "ChromeApp", "param": "Mail"}, "M": {"baseName": "ChromeApp", "param": "Mail"}, "j": {"baseName": "ChromeApp", "param": "Junk"}, "J": {"baseName": "ChromeApp", "param": "Junk"}, "c": {"baseName": "ChromeApp", "param": "Calendar"}, "C": {"baseName": "ChromeApp", "param": "Calendar"}, "l": {"baseName": "ChromeApp", "param": "Ledger"}, "L": {"baseName": "ChromeApp", "param": "Ledger"}, "D": {"baseName": "ChromeApp", "param": "Drive"}, "S": {"baseName": "ChromeApp", "param": "Schedule"}, "g": {"baseName": "ChromeApp", "param": "Gemini"}, "G": {"baseName": "ChromeApp", "param": "Gemini"}, "O": {"baseName": "ChromeApp", "param": "ChatGPT"}, "K": {"baseName": "ChromeApp", "param": "Notes"}, "cmd-n": {"baseName": "newtab", "param": ""}, "cmd-m": {"baseName": "compose", "param": ""}, "w": {"baseName": "window", "param": ""}, "cmd-b": {"baseName": "newbookmark", "param": ""}, "cmd-c": {"baseName": "chars", "param": ""}, "cmd-d": {"baseName": "dates", "param": ""}, "cmd-f": {"baseName": "flip", "param": ""}, "cmd-p": {"baseName": "pop", "param": ""}, "1": {"baseName": "bookmark", "param": ""}, "f1": {"baseName": "bookmark", "param": ""}, "2": {"baseName": "coaching", "param": ""}, "f2": {"baseName": "coaching", "param": ""}, "3": {"baseName": "books", "param": ""}, "f3": {"baseName": "books", "param": ""}, "4": {"baseName": "clipboard", "param": ""}, "f4": {"baseName": "clipboard", "param": ""}, "5": {"baseName": "log", "param": ""}, "f5": {"baseName": "log", "param": ""}, "6": {"baseName": "screen", "param": ""}, "f6": {"baseName": "screen", "param": ""}, "7": {"baseName": "template", "param": ""}, "f7": {"baseName": "template", "param": ""}, "8": {"baseName": "catalog", "param": ""}, "f8": {"baseName": "catalog", "param": ""}, "9": {"baseName": "url", "param": ""}, "f9": {"baseName": "url", "param": ""}, "opt-p": {"baseName": "refresh", "param": ""}, "opt-s": {"baseName": "strings", "param": ""}, "opt-k": {"baseName": "reinit", "param": ""}, "opt-e": {"baseName": "edit", "param": ""}, "opt-j": {"baseName": "json", "param": ""}, "/": {"baseName": "help", "param": ""}, "h": {"baseName": "help", "param": ""}, "opt-h": {"baseName": "help", "param": ""}, "opt-i": {"baseName": "info", "param": ""}, "i": {"baseName": "info", "param": ""}, "opt-d": {"baseName": "debug", "param": ""}, "opt-o": {"baseName": "open", "param": ""}, "\u21e7P": {"baseName": "play", "param": ""}, "P": {"baseName": "play", "param": ""}, "tab": {"baseName": "keypad+", "param": ""}, "\u21e7backspace": {"baseName": "minimize", "param": ""}, "backspace": {"baseName": "minimize", "param": ""}, "x": {"baseName": "cancel", "param": ""}, ".": {"baseName": "cancel", "param": ""}};
+
+let isDebug = false;
+
+function KMInit() {
+  if(window.KeyboardMaestro) {
+    isDebug = (window.KeyboardMaestro.GetVariable('Local_PromptDebug') === 'Y' || window.KeyboardMaestro.GetVariable('localPromptDebug') === 'Y');
+    if(isDebug) {
+      let b = document.getElementById('dbg-badge');
+      if(b) b.style.display = 'inline-block';
+    }
+  }
+}
+
+function sub(i,m,k,p){
+  if(window.KeyboardMaestro){
+    let dbgVars = "";
+    document.querySelectorAll('input[data-in="1"]').forEach(inp=>{
+      if(inp.id) {
+        window.KeyboardMaestro.SetVariable(inp.id,inp.value);
+        if(isDebug) dbgVars += inp.id + ": " + inp.value + "\n";
+      }
+    });
+    
+    if(isDebug && dbgVars !== "") {
+      window.KeyboardMaestro.SetVariable('localPromptDebugVars', dbgVars.trim());
+    }
+    
+    window.KeyboardMaestro.Submit(`${i}:${m||""}:${k||""}:${p||""}`);
+  }
+}
+const ct=document.getElementById('c');
+function cl(st,co){let d=document.createElement('div');d.className='s '+st;if(co)d.style.borderTopColor=co;ct.appendChild(d);}
+rs.forEach(r=>{
+  if(r.line_before)cl(r.line_before,r.line_color);
+  let rd=document.createElement('div');rd.className='r';
+  if(true){let l=document.createElement('div');l.className='rl';l.textContent=r.label||"";rd.appendChild(l);}
+  r.buttons.forEach(b=>{
+    let t=(b.type||"button").toLowerCase(), fc=b.font==="both"?"fbi":b.font==="bold"?"fb":b.font==="italics"?"fi":"";
+    if(t==="phrase"){let s=document.createElement('div');s.className=`i p ${fc}`;s.textContent=b.label;rd.appendChild(s);}
+    else if(t==="hidden"){let s=document.createElement('button');s.className=`i inv`;s.textContent=b.label;rd.appendChild(s);}
+    else if(t==="input"){
+      let ip=document.createElement('input');ip.type='text';ip.className=`i ${fc}`;ip.id=b.name||'i_'+Math.random();ip.value=b.default||"";ip.dataset.in="1";
+      if(b.width){ip.style.width=b.width+'px';ip.style.flex=`0 0 ${b.width}px`;}rd.appendChild(ip);
+    }else{
+      let bt=document.createElement('button');bt.className=`i ${fc}`;bt.textContent=b.label;bt.tabIndex=-1;
+      if(b.color){bt.style.borderColor=b.color;bt.style.borderWidth="2px";}
+      bt.onclick=(e)=>{
+        let m="";if(e.ctrlKey)m+="⌃";if(e.altKey)m+="⌥";if(e.shiftKey)m+="⇧";if(e.metaKey)m+="⌘";
+        sub(b.name,m,"",b.param);
+      };
+      if(b.name===did)bt.id='db';rd.appendChild(bt);
+    }
+  });
+  ct.appendChild(rd);if(r.line_after)cl(r.line_after,r.line_color);
+});
+let df=document.getElementById('db')||ct.querySelector('button:not(.inv)');if(df)df.focus();
+document.addEventListener('keydown',e=>{
+  let k=e.key, kl=k.toLowerCase(), ac=document.activeElement;
+  if(ac&&ac.tagName==='INPUT'){
+    if(kl==='escape'||kl==='enter'){e.preventDefault();ac.blur();return;}
+    if(kl==='tab')return; return;
+  }
+  if(kl==='escape'){e.preventDefault();if(cid)sub(cid,"","escape","");else window.KeyboardMaestro.Cancel('Cancel');return;}
+  if(kl==='enter'&&e.code!=='NumpadEnter'){
+    if(did){e.preventDefault();let m="";if(e.ctrlKey)m+="⌃";if(e.altKey)m+="⌥";if(e.shiftKey)m+="⇧";if(e.metaKey)m+="⌘";sub(did,m,"enter","");return;}
+  }
+  let px="";if(e.metaKey)px+="cmd-";if(e.ctrlKey)px+="ctrl-";if(e.altKey)px+="opt-";
+  let bh=null, fk=k;
+  if(e.code&&e.code.startsWith('Numpad')){let d=e.code.slice(6);if(kb[px+"num"+d]){bh=kb[px+"num"+d];fk=d;}}
+  if(!bh){
+    bh=kb[px+k]||kb[k]||kb[kl];
+    if(!bh&&e.code){
+      let ph=null;if(e.code.startsWith('Digit'))ph=e.code.slice(5);else if(e.code.startsWith('Numpad'))ph=e.code.slice(6);else if(e.code.startsWith('Key'))ph=e.code.slice(3).toLowerCase();
+      if(ph){bh=kb[px+ph]||kb[ph];if(bh)fk=ph;}
+    }
+  }
+  if(bh){
+    e.preventDefault();let m="";if(e.ctrlKey)m+="⌃";if(e.altKey)m+="⌥";if(e.shiftKey)m+="⇧";if(e.metaKey)m+="⌘";sub(bh.baseName,m,fk,bh.param);
+  } else if(isDebug && !['Meta','Control','Alt','Shift','CapsLock','Tab'].includes(k)) {
+    e.preventDefault();let m="";if(e.ctrlKey)m+="⌃";if(e.altKey)m+="⌥";if(e.shiftKey)m+="⇧";if(e.metaKey)m+="⌘";sub("NO MATCH",m,k,"");
+  }
+});
+</script></body></html>
